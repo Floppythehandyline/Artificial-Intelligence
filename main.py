@@ -6,12 +6,6 @@ dt = pd.read_csv('MazeR.csv', header=None).to_numpy()
 dt[7,1] = -1
 ROW = 7
 COL = 1
-def DFA():
-    pass
-def BFS():
-    pass
-def AStar():
-    pass
 while True:
     print(dt)
     direction = input("Enter the directions (8:U, 2:D, 4:L, 6:R): ")
