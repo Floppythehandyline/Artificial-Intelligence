@@ -3,7 +3,8 @@ import numpy as np
 
 
 dt = pd.read_csv('MazeR.csv', header=None).to_numpy()
-dt[7,1] = -1
+dt[7,1] = 22
+dt[1,12] = 33
 ROW = 7
 COL = 1
 while True:
@@ -18,12 +19,12 @@ while True:
     elif direction == 'R' or direction == '6':
             COL += 1
     else:
-        print("Invalid direction!")
+        print("Invalid direction.")
         continue    
     
     
     if dt[ROW, COL] == 1 or dt[ROW,COL] == -1:
-        print("Can't move at that")
+        print("You hit a wall.")
         if direction == 'U' or direction == '8':
             ROW += 1
         elif direction == 'D' or direction == '2':
@@ -33,7 +34,7 @@ while True:
         elif direction == 'R' or direction == '6':
             COL -= 1
         continue
-    elif dt[ROW,COL] == 3:
+    elif dt[ROW,COL] == 33:
         print("See you, my boy.")
         break
     else:
