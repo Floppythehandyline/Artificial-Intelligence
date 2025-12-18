@@ -7,12 +7,13 @@ ROWS, COLS = dt.shape
 
 def DFS(r, c):
  
+    # กำหนดขอบเขต
     if r < 0 or r >= ROWS or c < 0 or c >= COLS:
         return False
-
+    # กันเดินข้ามกำแพงหรือเดินย้อนหลัง
     if dt[r, c] == 1 or dt[r, c] == -1:
         return False
-
+    # ตรวจสอบเป้าหมาย
     if dt[r, c] == 3:
         print("Found target!")
         return True

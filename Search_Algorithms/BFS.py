@@ -1,33 +1,23 @@
+from collections import deque
 import pandas as pd
 import time
-from collections import deque
-dt = pd.read_csv('AStar.csv', header=None).to_numpy()
 
+dt = pd.read_csv('MazeR.csv', header=None).to_numpy()
 ROWS, COLS = dt.shape
 
-for r in range(ROWS):
-    for c in range(COLS):
-        if dt[r][c] == 3:
-            GOAL = (r, c)
-            
-# Manhattan distance
-def h(a, b):
-    return abs(a[0] - b[0]) + abs(a[1] - b[1])
-
-def AStar(r, c):
- 
+def BFS(start_r, start_c):
     q = deque()
     q.append((start_r, start_c))
 
     while q:
         r, c = q.popleft()
-
+        # กำหนดขอบเขต
         if r < 0 or r >= ROWS or c < 0 or c >= COLS:
             continue
-
+        # กันเดินข้ามกำแพงหรือเดินย้อนหลัง
         if dt[r, c] == 1 or dt[r, c] == -1:
             continue
-
+        # ตรวจสอบเป้าหมาย
         if dt[r, c] == 3:
             print("Found target!")
             return True
@@ -43,7 +33,6 @@ def AStar(r, c):
 
     print("Target not found")
     return False
-start_row = 6
-start_col = 0
 
-# AStar(start_row, start_col)
+
+BFS(7, 1)
