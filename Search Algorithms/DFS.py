@@ -10,12 +10,28 @@ while True:
     direction = input("Enter the directions (8:U, 2:D, 4:L, 6:R): ")
     if direction == 'U':
             ROW -= 1
+            if dt[ROW, COL] == 1:
+                ROW += 1
+                print("Hit a wall!")
+                continue
     elif direction == 'D':
             ROW += 1
+            if dt[ROW, COL] == 1:
+                ROW -= 1
+                print("Hit a wall!")
+                continue
     elif direction == 'L':
             COL -= 1
+            if dt[ROW, COL] == 1:
+                COL += 1
+                print("Hit a wall!")
+                continue
     elif direction == 'R':
             COL += 1
+            if dt[ROW, COL] == 1:
+                COL -= 1
+                print("Hit a wall!")
+                continue
     else:
         print("Invalid direction!")
         continue    
@@ -23,5 +39,4 @@ while True:
         print("Hit a wall!")
         continue
     else:
-        dt[ROW, COL] =  4
-    # print(dt)
+        dt[ROW, COL] =  -1
