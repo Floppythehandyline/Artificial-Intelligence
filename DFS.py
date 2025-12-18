@@ -14,17 +14,17 @@ def DFS(r, c):
         return False
 
     if dt[r, c] == 3:
-        print("🎯 Found target!")
+        print("Found target!")
         return True
 
     dt[r, c] = -1
     print(dt)
     time.sleep(0.5)
 
-    if (DFS(r, c+1) or
-        DFS(r+1, c) or
-        DFS(r-1, c) or
-        DFS(r, c-1)):
+    if (DFS(r, c+1) or # ขวา
+        DFS(r+1, c) or # ล่าง
+        DFS(r-1, c) or # บน
+        DFS(r, c-1)):  # ซ้าย
         return True
 
     return False
