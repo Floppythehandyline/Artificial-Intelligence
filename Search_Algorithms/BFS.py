@@ -3,6 +3,8 @@ import pandas as pd
 import time
 
 dt = pd.read_csv('MazeR.csv', header=None).to_numpy()
+dt[7,1] = 22   # กำหนดจุดเริ่มต้น
+dt[1,12] = 33  # กำหนดเป้าหมาย
 ROWS, COLS = dt.shape
 
 def BFS(start_r, start_c):
@@ -15,14 +17,14 @@ def BFS(start_r, start_c):
         if r < 0 or r >= ROWS or c < 0 or c >= COLS:
             continue
         # กันเดินข้ามกำแพงหรือเดินย้อนหลัง
-        if dt[r, c] == 1 or dt[r, c] == -1:
+        if dt[r, c] == 1 or dt[r, c] == -10:
             continue
         # ตรวจสอบเป้าหมาย
-        if dt[r, c] == 3:
+        if dt[r, c] == 33:
             print("Found target!")
             return True
 
-        dt[r, c] = -1
+        dt[r, c] = -10
         print(dt)
         time.sleep(0.5)
 

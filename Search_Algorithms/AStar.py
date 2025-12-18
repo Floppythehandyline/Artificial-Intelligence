@@ -9,7 +9,7 @@ ROWS, COLS = dt.shape
 # ===== Find goal =====
 for r in range(ROWS):
     for c in range(COLS):
-        if dt[r, c] == 3:
+        if dt[r, c] == 33:
             GOAL = (r, c)
 
 # ===== Heuristic (Manhattan) =====
@@ -76,6 +76,6 @@ path = AStar(start)
 if path:
     for r, c in path:
         if dt[r, c] == 0:
-            dt[r, c] = -1
+            dt[r, c] = -10
         print(dt)
         time.sleep(0.3)
