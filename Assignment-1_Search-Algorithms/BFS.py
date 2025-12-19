@@ -2,7 +2,7 @@ from collections import deque
 import pandas as pd
 import time
 
-dt = pd.read_csv('MazeR.csv', header=None).to_numpy()
+dt = pd.read_csv('Maze_15x15_complex.csv', header=None).to_numpy()
 dt[7,1] = 22   # กำหนดจุดเริ่มต้น
 dt[1,12] = 33  # กำหนดเป้าหมาย
 ROWS, COLS = dt.shape
