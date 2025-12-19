@@ -1,1 +1,1 @@
-โปรดอ่านไฟล์ README ในแต่ละ folder
+The programs for the search algorithms will be located in the "code" folder
